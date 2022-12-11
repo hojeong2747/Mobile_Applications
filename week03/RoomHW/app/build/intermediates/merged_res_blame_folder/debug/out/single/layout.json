@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "work2.mobile.week03.roomhw.app-mergeDebugResources-39:/layout/activity_update.xml",
+        "source": "work2.mobile.week03.roomhw.app-main-42:/layout/activity_update.xml"
+    },
+    {
+        "merged": "work2.mobile.week03.roomhw.app-mergeDebugResources-39:/layout/activity_all_contacts.xml",
+        "source": "work2.mobile.week03.roomhw.app-main-42:/layout/activity_all_contacts.xml"
+    },
+    {
+        "merged": "work2.mobile.week03.roomhw.app-mergeDebugResources-39:/layout/activity_insert.xml",
+        "source": "work2.mobile.week03.roomhw.app-main-42:/layout/activity_insert.xml"
+    },
+    {
+        "merged": "work2.mobile.week03.roomhw.app-mergeDebugResources-39:/layout/activity_main.xml",
+        "source": "work2.mobile.week03.roomhw.app-main-42:/layout/activity_main.xml"
+    }
+]

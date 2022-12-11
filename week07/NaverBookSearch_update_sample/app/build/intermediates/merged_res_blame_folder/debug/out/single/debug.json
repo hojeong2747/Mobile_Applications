@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "ddwu.mobile.network.sample.naverbooksearch.app-merged_res-14:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "ddwu.mobile.network.sample.naverbooksearch.app-main-16:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ddwu.mobile.network.sample.naverbooksearch.app-merged_res-14:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "ddwu.mobile.network.sample.naverbooksearch.app-main-16:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ddwu.mobile.network.sample.naverbooksearch.app-merged_res-14:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "ddwu.mobile.network.sample.naverbooksearch.app-main-16:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ddwu.mobile.network.sample.naverbooksearch.app-merged_res-14:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "ddwu.mobile.network.sample.naverbooksearch.app-main-16:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ddwu.mobile.network.sample.naverbooksearch.app-merged_res-14:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "ddwu.mobile.network.sample.naverbooksearch.app-main-16:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ddwu.mobile.network.sample.naverbooksearch.app-merged_res-14:/layout_listview_book.xml.flat",
+        "source": "ddwu.mobile.network.sample.naverbooksearch.app-main-16:/layout/listview_book.xml"
+    },
+    {
+        "merged": "ddwu.mobile.network.sample.naverbooksearch.app-merged_res-14:/layout_activity_main.xml.flat",
+        "source": "ddwu.mobile.network.sample.naverbooksearch.app-main-16:/layout/activity_main.xml"
+    }
+]

@@ -1,0 +1,4 @@
+#Wed Oct 05 00:29:07 KST 2022
+base.0=C\:\\Work2\\Mobile\\week04\\UploadHttp\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

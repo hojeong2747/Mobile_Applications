@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "mobile.example.network.sample.openapi_with_file.app-merged_res-13:/layout_listview_book.xml.flat",
+        "source": "mobile.example.network.sample.openapi_with_file.app-main-15:/layout/listview_book.xml"
+    },
+    {
+        "merged": "mobile.example.network.sample.openapi_with_file.app-merged_res-13:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "mobile.example.network.sample.openapi_with_file.app-main-15:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "mobile.example.network.sample.openapi_with_file.app-merged_res-13:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "mobile.example.network.sample.openapi_with_file.app-main-15:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "mobile.example.network.sample.openapi_with_file.app-merged_res-13:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "mobile.example.network.sample.openapi_with_file.app-main-15:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "mobile.example.network.sample.openapi_with_file.app-merged_res-13:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "mobile.example.network.sample.openapi_with_file.app-main-15:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "mobile.example.network.sample.openapi_with_file.app-merged_res-13:/layout_activity_main.xml.flat",
+        "source": "mobile.example.network.sample.openapi_with_file.app-main-15:/layout/activity_main.xml"
+    },
+    {
+        "merged": "mobile.example.network.sample.openapi_with_file.app-merged_res-13:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "mobile.example.network.sample.openapi_with_file.app-main-15:/mipmap-mdpi/ic_launcher.png"
+    }
+]

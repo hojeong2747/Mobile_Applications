@@ -1,0 +1,82 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="ddwu.mobile.lecture.etc.myretrofittest"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:5:5-79
+11-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:6:5-67
+12-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:6:22-64
+13
+14    <application
+14-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:8:5-25:19
+15        android:allowBackup="true"
+15-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:9:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.8.0] C:\Users\82104\.gradle\caches\transforms-3\28a1708219c3158e49b329d141e5cfff\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+17        android:debuggable="true"
+18        android:extractNativeLibs="false"
+19        android:icon="@mipmap/ic_launcher"
+19-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:10:9-43
+20        android:label="@string/app_name"
+20-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:11:9-41
+21        android:roundIcon="@mipmap/ic_launcher_round"
+21-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:12:9-54
+22        android:supportsRtl="true"
+22-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:13:9-35
+23        android:testOnly="true"
+24        android:theme="@style/AppTheme"
+24-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:14:9-40
+25        android:usesCleartextTraffic="true" >
+25-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:15:9-44
+26        <activity
+26-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:16:9-24:20
+27            android:name="ddwu.mobile.lecture.etc.myretrofittest.MainActivity"
+27-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:17:13-41
+28            android:exported="true" >
+28-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:18:13-36
+29            <intent-filter>
+29-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:19:13-23:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:20:17-69
+30-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:20:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:22:17-77
+32-->C:\Work2\Mobile\week06\MyRetrofitNaverTest\app\src\main\AndroidManifest.xml:22:27-74
+33            </intent-filter>
+34        </activity>
+35
+36        <provider
+36-->[androidx.emoji2:emoji2:1.2.0] C:\Users\82104\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+37            android:name="androidx.startup.InitializationProvider"
+37-->[androidx.emoji2:emoji2:1.2.0] C:\Users\82104\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+38            android:authorities="ddwu.mobile.lecture.etc.myretrofittest.androidx-startup"
+38-->[androidx.emoji2:emoji2:1.2.0] C:\Users\82104\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+39            android:exported="false" >
+39-->[androidx.emoji2:emoji2:1.2.0] C:\Users\82104\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+40            <meta-data
+40-->[androidx.emoji2:emoji2:1.2.0] C:\Users\82104\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+41                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+41-->[androidx.emoji2:emoji2:1.2.0] C:\Users\82104\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+42                android:value="androidx.startup" />
+42-->[androidx.emoji2:emoji2:1.2.0] C:\Users\82104\.gradle\caches\transforms-3\ec6e2ba61c9a42dd8e0aa44ee71f9dfb\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+43            <meta-data
+43-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\82104\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+44                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+44-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\82104\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+45                android:value="androidx.startup" />
+45-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\82104\.gradle\caches\transforms-3\371d4428813d11175307b9e72a350208\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+46        </provider>
+47    </application>
+48
+49</manifest>

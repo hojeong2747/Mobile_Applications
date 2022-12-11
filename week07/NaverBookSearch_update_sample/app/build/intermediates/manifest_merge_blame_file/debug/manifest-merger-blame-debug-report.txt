@@ -1,0 +1,64 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="ddwu.mobile.network.sample.naverbooksearch"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:5:5-79
+11-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:6:5-66
+12-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:8:5-79
+13-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:8:22-77
+14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+14-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:9:5-80
+14-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:9:22-78
+15
+16    <application
+16-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:11:5-26:19
+17        android:allowBackup="true"
+17-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:13:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.5.0] C:\Users\82104\.gradle\caches\transforms-3\5c5e8dce9a0ed12f290ac39851d18ca8\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+20        android:extractNativeLibs="false"
+21        android:icon="@mipmap/ic_launcher"
+21-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:14:9-43
+22        android:label="@string/app_name"
+22-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:15:9-41
+23        android:supportsRtl="true"
+23-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:16:9-35
+24        android:testOnly="true"
+25        android:theme="@style/AppTheme"
+25-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:17:9-40
+26        android:usesCleartextTraffic="true" >
+26-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:12:9-44
+27        <activity
+27-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:18:9-25:20
+28            android:name="ddwu.mobile.network.sample.naverbooksearch.MainActivity"
+28-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:18:19-47
+29            android:exported="true" >
+29-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:19:13-36
+30            <intent-filter>
+30-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:20:13-24:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:21:17-68
+31-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:21:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:23:17-76
+33-->C:\Work2\Mobile\week07\NaverBookSearch_update_sample\app\src\main\AndroidManifest.xml:23:27-74
+34            </intent-filter>
+35        </activity>
+36    </application>
+37
+38</manifest>

@@ -1,0 +1,5 @@
+ddwu/mobile/filetest/basicfiletest/BuildConfig.java
+ ddwu.mobile.filetest.basicfiletest.BuildConfig
+ddwu/mobile/filetest/basicfiletest/MainActivity.java
+ ddwu.mobile.filetest.basicfiletest.MainActivity
+ ddwu.mobile.filetest.basicfiletest.MainActivity$1
