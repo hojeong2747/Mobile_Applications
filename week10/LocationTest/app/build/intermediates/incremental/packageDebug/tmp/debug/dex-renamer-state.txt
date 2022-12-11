@@ -1,4 +1,4 @@
-#Sat Dec 10 22:14:42 KST 2022
+#Sun Dec 11 15:53:30 KST 2022
 base.2=C\:\\Work2\\Mobile\\week10\\LocationTest\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
 path.2=10/classes.dex
 base.1=C\:\\Work2\\Mobile\\week10\\LocationTest\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

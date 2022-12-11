@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
 
     FakeParser parser;
 
-    FusedLocationProviderClient flpClient;
-    Location mLastLocation;
+    FusedLocationProviderClient flpClient; // 위치 정보 수신
+    Location mLastLocation; // 최종 위치 저장할 멤버 변수
 
-    private GoogleMap mGoogleMap;       // 지도 객체
+    private GoogleMap mGoogleMap;       // 지도를 저장할 멤버변수 GoogleMap 객체
     private Marker mCenterMarer;         // 중앙 표시 Marker
     private Marker poiMarker;
-    private Polyline mPolyline;
+    private Polyline mPolyline;     // Google Map library 에서 제공하는 지도 상 line 그릴 수 있는 객체
 
     ArrayList<Marker> markerList = new ArrayList<Marker>();
 
@@ -71,35 +71,39 @@ public class MainActivity extends AppCompatActivity {
 
         parser = new FakeParser();      // 모의 parser 생성
 
-        flpClient = LocationServices.getFusedLocationProviderClient(this);
+        flpClient = LocationServices.getFusedLocationProviderClient(this); // 위치 정보 수신
 
+        // Map Fragment 가져와서 지도 로딩 실행
         SupportMapFragment mapFragment
                 = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(mapReadyCallback);
+        mapFragment.getMapAsync(mapReadyCallback); // Google Map을 서버로부터 받아오는데, Async 사용해서 비동기로 받아온다.
     }
 
-
+    // getMapAsync로 map 정보가 언제 다 날라올지 모르기 때문에 비동기 처리로 받고, OnMapReadyCallback 객체 생성
     OnMapReadyCallback mapReadyCallback = new OnMapReadyCallback() {
         @Override
         public void onMapReady(@NonNull GoogleMap googleMap) {
             mGoogleMap = googleMap;
+            // 이 시점부터 코드 상에서 지도 제어 및 사용 가능
 
-//            지도 초기 위치 이동
+            // 지도 위치 이동하기 - 1. 특정 위치로 이동하기
             LatLng latLng = new LatLng(37.606320, 127.041808);
             mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
 
-//            지도 중심 마커 추가
+            // 지도 특정 위치에 마커 추가 - 지도 준비되고 마커 추가해야 하므로 onMapReady 에 작성
+            // 마커 옵션 설정
             MarkerOptions markerOptions = new MarkerOptions()
                     .position(latLng)
                     .title("현재 위치")
                     .snippet("이동중")
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
 
+            // 지도에 마커 추가 - 반환 값은 Marker (제거, 이동 등 제어 가능)
             mCenterMarer = mGoogleMap.addMarker(markerOptions);
             mCenterMarer.showInfoWindow();
 
 
-//            지도 롱클릭 이벤트 처리
+            // 지도 롱클릭 이벤트 처리
             mGoogleMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
                 @Override
                 public void onMapLongClick(@NonNull LatLng latLng) {
@@ -107,36 +111,44 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-
+            // 마커 클릭 이벤트 - 마커 위의 윈도우 클릭 이벤트 처리
+            mGoogleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(@NonNull Marker marker) {
+                    Toast.makeText(MainActivity.this, "marker window click : " + marker.getId() , Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     };
 
 
+    // FusedLocationProviderClient 객체 생성할 때 넣는 매개변수 중 하나
     LocationCallback mLocCallback = new LocationCallback() {
         @Override
-        public void onLocationResult(@NonNull LocationResult locationResult) {
+        public void onLocationResult(@NonNull LocationResult locationResult) { // 전달받은 LocationResult 로 지도 위치 이동
             for (Location loc : locationResult.getLocations()) {
                 double lat = loc.getLatitude();
                 double lng = loc.getLongitude();
                 setTvText(String.format("(%.6f, %.6f)", lat, lng));
-
-//                지도 위치 이동
+                
+                // 지도 위치 이동하기 - 2. GPS 수신 위치로 이동하기 : FusedLocationProviderClient, LocationCallback 사용
                 mLastLocation = loc;
                 LatLng currentLoc = new LatLng(lat, lng);
                 mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLoc, 17));
 
-//                지도 마커 위치 이동
+                // 지도 마커 위치 이동
                 mCenterMarer.setPosition(currentLoc);
 
-//                지도 선을 그리기 위한 지점(위도/경도) 추가
-                List<LatLng> latLngs = mPolyline.getPoints();
-                latLngs.add(currentLoc);
-                mPolyline.setPoints(latLngs);
+                // 지도 선을 그리기 위한 지점(위도/경도) 추가
+                List<LatLng> latLngs = mPolyline.getPoints(); // Google Map 의 Polyline 에서 getPoints()로 지점 get
+                latLngs.add(currentLoc); // 위치 리스트에 현재 위치 추가
+                mPolyline.setPoints(latLngs); // 추가된 위치 리스트를 Polyline 에 setPoints()로 다시 set
             }
         }
     };
 
 
+    // FusedLocationProviderClient 객체 생성할 때 넣는 매개변수 중 하나
     private LocationRequest getLocationRequest() {
         LocationRequest locationRequest = new LocationRequest();
         locationRequest.setInterval(5000);
@@ -167,15 +179,14 @@ public class MainActivity extends AppCompatActivity {
 //            강의자료 내용과 별도의 내용으로 polyOption 을 멤버변수로 선언하는 것이 아닌
 //            지도에 추가 후 반환하는 PolyLine 을 멤버변수로 선언하고 관리
                 PolylineOptions polylineOptions = new PolylineOptions()
-                        .color(Color.RED)
+                        .color(Color.BLUE)
                         .width(5);
-                mPolyline = mGoogleMap.addPolyline(polylineOptions);
-
+                mPolyline = mGoogleMap.addPolyline(polylineOptions); // 선 그리기 수행
                 break;
             case R.id.btn_stop:
                 flpClient.removeLocationUpdates(mLocCallback);
 
-//                지도 polyline 제거
+                // 지도 polyline 제거
                 mPolyline.remove();
                 break;
             case R.id.btn_poi:
@@ -187,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // 위치 정보 수신 종료 안 될 때를 대비해 onPause()에도 작성
     @Override
     protected void onPause() {
         super.onPause();
@@ -194,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // 요청 권한 결과 올 때 
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -211,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // 권환 획득 
     private void checkPermission() {
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED &&
@@ -227,12 +241,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // 최종 위치 확인
     private void getLastLocation() {
-
+        // 권한
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
 
+        // 최종 위치 확인 되었을 때
         flpClient.getLastLocation().addOnSuccessListener(
                 new OnSuccessListener<Location>() {
                     @Override
@@ -260,22 +276,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // Geocoding 실행
     private void executeGeocoding(LatLng latLng) {
         if (Geocoder.isPresent()) {
             Toast.makeText(this, "Run Geocoder", Toast.LENGTH_SHORT).show();
-            if (latLng != null)  new GeoTask().execute(latLng);
+            if (latLng != null)  new GeoTask().execute(latLng); // AsyncTask로 Geocoding 실행
         } else {
             Toast.makeText(this, "No Geocoder", Toast.LENGTH_SHORT).show();
         }
     }
 
 
+    // AsyncTask로 Geocoding 실행
     class GeoTask extends AsyncTask<LatLng, Void, List<Address>> {
         Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
         @Override
         protected List<Address> doInBackground(LatLng... latLngs) {
             List<Address> addresses = null;
-            try {
+            try { // Geocoding 실행 : 위도 경도 -> 실 주소
                 addresses = geocoder.getFromLocation(latLngs[0].latitude,
                         latLngs[0].longitude, 1);
             } catch (IOException e) {
@@ -284,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
             return addresses;
         }
 
+        // Geocoding 결과 이용 -> 실 주소 출력
         @Override
         protected void onPostExecute(List<Address> addresses) {
             if (addresses != null) {
