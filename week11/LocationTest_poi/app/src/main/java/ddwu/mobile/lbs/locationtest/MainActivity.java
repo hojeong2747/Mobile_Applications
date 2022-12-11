@@ -46,18 +46,15 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     final String TAG = "MainActivity";
-
     final int REQ_PERMISSION_CODE = 100;
 
     TextView tvText;
-
     FakeParser parser;
-
     FusedLocationProviderClient flpClient; // 위치 정보 수신
     Location mLastLocation; // 최종 위치 저장할 멤버 변수
 
     private GoogleMap mGoogleMap;       // 지도를 저장할 멤버변수 GoogleMap 객체
-    private Marker mCenterMarer;         // 중앙 표시 Marker
+    private Marker mCenterMarker;         // 중앙 표시 Marker
     private Marker poiMarker;
     private Polyline mPolyline;     // Google Map library 에서 제공하는 지도 상 line 그릴 수 있는 객체
 
@@ -99,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
 
             // 지도에 마커 추가 - 반환 값은 Marker (제거, 이동 등 제어 가능)
-            mCenterMarer = mGoogleMap.addMarker(markerOptions);
-            mCenterMarer.showInfoWindow();
+            mCenterMarker = mGoogleMap.addMarker(markerOptions);
+            mCenterMarker.showInfoWindow();
 
 
             // 지도 롱클릭 이벤트 처리
@@ -129,15 +126,17 @@ public class MainActivity extends AppCompatActivity {
             for (Location loc : locationResult.getLocations()) {
                 double lat = loc.getLatitude();
                 double lng = loc.getLongitude();
-                setTvText(String.format("(%.6f, %.6f)", lat, lng));
+//                setTvText(String.format("(%.6f, %.6f)", lat, lng));
                 
                 // 지도 위치 이동하기 - 2. GPS 수신 위치로 이동하기 : FusedLocationProviderClient, LocationCallback 사용
                 mLastLocation = loc;
                 LatLng currentLoc = new LatLng(lat, lng);
                 mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLoc, 17));
 
+                executeGeocoding(currentLoc); // 출력
+
                 // 지도 마커 위치 이동
-                mCenterMarer.setPosition(currentLoc);
+                mCenterMarker.setPosition(currentLoc);
 
                 // 지도 선을 그리기 위한 지점(위도/경도) 추가
                 List<LatLng> latLngs = mPolyline.getPoints(); // Google Map 의 Polyline 에서 getPoints()로 지점 get
@@ -152,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     private LocationRequest getLocationRequest() {
         LocationRequest locationRequest = new LocationRequest();
         locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(1000);
+        locationRequest.setFastestInterval(3000);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         return locationRequest;
     }
@@ -307,7 +306,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(List<Address> addresses) {
             if (addresses != null) {
                 Address address = addresses.get(0);
-                Toast.makeText(MainActivity.this, address.getAddressLine(0), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, address.getAddressLine(0), Toast.LENGTH_SHORT).show();
+                setTvText(address.getAddressLine(0));
             }
         }
     }
