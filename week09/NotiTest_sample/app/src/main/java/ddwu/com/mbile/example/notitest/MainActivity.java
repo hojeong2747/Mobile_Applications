@@ -19,13 +19,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        createNotificationChannel();
+        createNotificationChannel(); // onCreate()에서 알림 채널 생성
     }
 
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.btnNoti:
+                // 알림 실행 시 알림 버튼 탭 시 실행할 동작 지정
+                Intent intent = new Intent(this, NotiActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
+                // 알림 생성
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "MY_CHANNEL")
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle("Notification")
+                        .setContentText("This is notification")
+                        .setStyle(new NotificationCompat.BigTextStyle()
+                                .bigText("This is notification\n알림의 확장된 영역에 표시되는 컨텐츠입니다."))
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .addAction(R.drawable.ic_launcher_foreground, "noti", pendingIntent) // noti 버튼
+                        .setAutoCancel(true);
+                // pendingIntent를 addAction에 전달 (여기서 메소드 인자로 넣는 것을 전달이라고 표현하는 듯)
+
+                // 알림 실행
+                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+                int notificationId = 100; // 알림 구분 위한 정수형 식별자 지정
+                notificationManager.notify(notificationId, builder.build()); // 생성 알림 실행
 
                 break;
         }
