@@ -22,9 +22,17 @@ public class DetailActivity extends AppCompatActivity {
         etName = findViewById(R.id.etName);
         etPhone = findViewById(R.id.etPhone);
         etAddress = findViewById(R.id.etAddress);
+        
+        // 전달받은 intent 값 읽기
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("name");
+        String phone = intent.getStringExtra("phone");
+        String address = intent.getStringExtra("address");
 
-
-
+        // 화면에 출력
+        etName.setText(name);
+        etPhone.setText(phone);
+        etAddress.setText(address);
     }
 
     public void onClick(View v) {

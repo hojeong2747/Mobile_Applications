@@ -110,11 +110,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (etKeyword.getText().toString().equals("카페")) {
                     searchStart(Double.parseDouble(getString(R.string.init_lat)),
                             Double.parseDouble(getString(R.string.init_lng)),
-                            100, PlaceTypes.CAFE);
+                            100, PlaceTypes.CAFE); // 반경 100m 안의 카페 검색
                 } else if (etKeyword.getText().toString().equals("식당")) {
                     searchStart(Double.parseDouble(getString(R.string.init_lat)),
                             Double.parseDouble(getString(R.string.init_lng)),
-                            100, PlaceTypes.RESTAURANT);
+                            100, PlaceTypes.RESTAURANT); // 반경 100m 안의 식당 검색
                 }
                 break;
         }

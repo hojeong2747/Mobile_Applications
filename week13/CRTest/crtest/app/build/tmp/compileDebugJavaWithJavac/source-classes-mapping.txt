@@ -1,5 +1,0 @@
-ddwu/mobile/week13/crtest/BuildConfig.java
- ddwu.mobile.week13.crtest.BuildConfig
-ddwu/mobile/week13/crtest/MainActivity.java
- ddwu.mobile.week13.crtest.MainActivity
- ddwu.mobile.week13.crtest.MainActivity$1
