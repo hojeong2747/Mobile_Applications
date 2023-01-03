@@ -35,6 +35,14 @@ public class NaverBookDto {
         this.imageLink = imageLink;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
     public String getTitle() {
         Spanned spanned = Html.fromHtml(title);     // 문자열에 HTML 태그가 포함되어 있을 경우 제거 후 일반 문자열로 변환
         return spanned.toString();
@@ -46,6 +54,7 @@ public class NaverBookDto {
 
     @Override
     public String toString() {
-        return  getTitle() + " (" + author +")";
+        return  getTitle() + " (" + author +")"
+                + " (" + link +")" + " (" + imageLink +")";
     }
 }

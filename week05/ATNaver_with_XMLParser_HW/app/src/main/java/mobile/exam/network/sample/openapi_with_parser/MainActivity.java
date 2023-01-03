@@ -141,6 +141,8 @@ public class MainActivity extends AppCompatActivity {
             conn = (HttpURLConnection)url.openConnection();
             conn.setRequestMethod("GET");
            /* 네이버 사용 시 설정 필요 */
+            // 네이버에서 이렇게 요청하도록 만들었다. key값이 url에 노출되면 보안이 좋지 않다.
+            // 헤더에 연결 관련, 식별 관련 정보를 속성으로 넣게 했다. 나머지는 똑같음. 차이점은 이것뿐이다!
             conn.setRequestProperty("X-Naver-Client-Id", clientId);
             conn.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 
